@@ -280,6 +280,7 @@ async function loadTree(branch) {
     const rootNode = { name: "", type: "tree", children: {} };
 
     data.tree.forEach(item => {
+      if (item.path === "index.html") return;
       // Skip nested trees that are too deep duplicates - we build structure from blobs/trees
       const parts = item.path.split("/");
       let cursor = rootNode;
